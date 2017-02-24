@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block head_title %}Post {{ post.id }}{% endblock head_title %}
+
+{% block content %}
+    <div class="col-sm-8 col-sm-offset-2">
+        <h1>{{ post.title }}
+            <br><small>{{ post.timestamp }}</small></h1>
+        {{ post.content|linebreaks }}
+    </div>
+
+    <a href="{% url 'post_edit' id=post.id %}">Edit Post</a><br>
+    <a href="{% url 'post_delete' id=post.id %}">Delete</a><br>
+    <a href="{% url 'post_home' %}">Back</a><br>
+{% endblock %}
+
